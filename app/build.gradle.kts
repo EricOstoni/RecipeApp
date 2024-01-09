@@ -34,14 +34,17 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
 }
 
 dependencies {
+
     val nav_version = "2.7.6"
+    val lifecycle_version = "2.4.0-rc01" ;
+//    val lifecycle_version = "2.6.2"
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -56,11 +59,21 @@ dependencies {
     //intuit
     implementation("com.intuit.sdp:sdp-android:1.0.6")
     implementation("com.intuit.ssp:ssp-android:1.0.6")
-    //gif
+    //Gif
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
-
+    // Retorfit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.3.0")
-
+    // Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    //ViewModel mvvm
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("android.arch.lifecycle:extensions:1.1.0")
+
+
+
+
+
 }
