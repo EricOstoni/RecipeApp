@@ -20,7 +20,7 @@ class MealActivity : AppCompatActivity() {
     private lateinit var mealThumb: String
     private lateinit var binding: ActivityMealBinding
     private lateinit var mealMvvm: MealViewModel
-    private lateinit var ytlink : String
+    private lateinit var ytlink: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMealBinding.inflate(layoutInflater)
@@ -39,14 +39,15 @@ class MealActivity : AppCompatActivity() {
     }
 
     private fun onYoutubeImgClick() {
-        binding.imgYoutube.setOnClickListener{
+        binding.imgYoutube.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(ytlink))
             startActivity(intent)
         }
     }
 
     private fun observMealDetailsLiveData() {
-        mealMvvm.observerMealDetailsLiveData().observe(this
+        mealMvvm.observerMealDetailsLiveData().observe(
+            this
         ) { value: Meal? ->
             onResponseCase()
 
@@ -54,7 +55,7 @@ class MealActivity : AppCompatActivity() {
             binding.tvMealLocation.text = "Location : ${value.strArea}"
             binding.instractionText.text = value.strInstructions
 
-            ytlink = value.strYoutube
+            ytlink = value.strYoutube!!
         }
     }
 

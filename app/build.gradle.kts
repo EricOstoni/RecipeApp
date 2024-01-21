@@ -43,7 +43,7 @@ android {
 dependencies {
 
     val nav_version = "2.7.6"
-    val lifecycle_version = "2.4.0-rc01" ;
+    val lifecycle_version = "2.4.0-rc01";
 //    val lifecycle_version = "2.6.2"
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -53,6 +53,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
     // navigation compoment
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
@@ -69,11 +70,18 @@ dependencies {
 
     //ViewModel mvvm
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     implementation("android.arch.lifecycle:extensions:1.1.0")
 
+    //Room
 
+    val room_version = "2.6.1"
 
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    //ksp("androidx.room:room-compiler:$room_version")
 
 
 }
+
