@@ -9,12 +9,13 @@ import com.example.recipeapp.databinding.CategoryItemBinding
 import com.example.recipeapp.pojo.Category
 
 
-class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
 
     private var categoriesList = ArrayList<Category>()
     var onItemClick: ((Category) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setCategoryList(categoriesList: List<Category>) {
         this.categoriesList = categoriesList as ArrayList<Category>
         notifyDataSetChanged()
@@ -37,7 +38,7 @@ class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.CategoryViewH
         holder.binding.tvCategoryName.text = categoriesList[position].strCategory
 
         holder.itemView.setOnClickListener {
-            onItemClick!!.invoke(categoriesList[position])
+            onItemClick?.invoke(categoriesList[position])
         }
     }
 
